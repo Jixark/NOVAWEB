@@ -1,0 +1,85 @@
+/*
+  Archivo: style.css
+  Ubicación: NOVAWEB/style.css
+  Descripción: Define todos los estilos visuales para la aplicación web.
+*/
+
+/* Estilos generales para toda la página */
+body {
+    font-family: sans-serif; /* Tipo de letra genérico y legible. */
+    margin: 0; /* Elimina el margen por defecto del navegador. */
+    overflow: hidden; /* Evita que aparezcan barras de scroll si algo se desborda. */
+    background-color: #ffffff; /* Fondo blanco para toda la página. */
+}
+
+/* Contenedor principal que ayuda a posicionar los elementos flotantes */
+.container {
+    position: relative; /* Establece un contexto de posicionamiento para los elementos hijos. */
+    width: 100vw; /* Ocupa el 100% del ancho de la ventana (viewport width). */
+    height: 100vh; /* Ocupa el 100% de la altura de la ventana (viewport height). */
+}
+
+/* Estilos para el contenedor de la cara animada */
+#cara-container {
+    width: 100%; /* Ocupa todo el ancho de su contenedor (.container). */
+    height: 100%; /* Ocupa toda la altura. */
+    background-image: url('animacion_cara/iot_1.png'); /* Imagen inicial que se muestra. */
+    
+    /* 'contain' asegura que la imagen entera siempre sea visible sin cortarse. */
+    background-size: contain; 
+    
+    background-repeat: no-repeat; /* Evita que la imagen se repita. */
+    
+    /* 'center top' alinea la imagen horizontalmente en el centro y verticalmente en la parte superior. */
+    background-position: center top; 
+    
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable. */
+    transition: background-image 0.1s ease-in-out; /* Transición suave cuando JavaScript cambia la imagen. */
+}
+
+/* Estilos para el contenedor del diálogo (actualmente oculto) */
+#dialogo-container {
+    display: none; /* Oculta completamente este elemento. */
+}
+
+/* Estilos para el contenedor de los botones de audio */
+.controles-audio {
+    position: absolute; /* Permite posicionar la caja de botones de forma flotante. */
+    left: 20px; /* La posiciona a 20px del borde izquierdo. */
+    top: 50%; /* La mueve al 50% de la altura de la pantalla. */
+    /* 'transform' ajusta la posición final para centrarla perfectamente en el eje vertical. */
+    transform: translateY(-50%); 
+    z-index: 10; /* Asegura que los botones estén por encima de la animación de la cara. */
+    background-color: rgba(240, 240, 240, 0.75); /* Fondo semitransparente para legibilidad. */
+    padding: 10px; /* Espacio interno. */
+    border-radius: 12px; /* Bordes redondeados. */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil para que resalte. */
+    
+    /* Flexbox ordena los elementos hijos. */
+    display: flex;
+    /* 'column' apila los botones uno encima del otro. */
+    flex-direction: column; 
+}
+
+/* Estilos para cada botón individual */
+.controles-audio button {
+    padding: 0.8em 1.2em; /* Relleno para hacer los botones más grandes. */
+    margin: 0.5em 0; /* Margen vertical entre los botones. */
+    border: 1px solid white; /* Borde gris claro. */
+    border-radius: 5px; /* Bordes redondeados. */
+    background-color: white; /* Fondo blanco. */
+    color: gray; /* Color de letra gris oscuro. */
+    font-size: 1em; /* Tamaño de la letra. */
+    cursor: pointer; /* El cursor se convierte en una mano. */
+    transition: background-color 0.3s; /* Transición suave de color. */
+}
+
+/* Estilo para cuando el cursor pasa por encima de un botón */
+.controles-audio button:hover {
+    background-color: #f2f2f2; /* El fondo se vuelve un gris muy claro. */
+}
+
+/* Estilo para cuando se está presionando un botón */
+.controles-audio button:active {
+    transform: scale(0.98); /* El botón se encoge un poco para dar feedback. */
+}
